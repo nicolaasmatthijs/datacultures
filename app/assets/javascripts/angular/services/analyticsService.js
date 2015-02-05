@@ -12,10 +12,16 @@
      * @param  {String}         name            The display name of the user being tracked
      */
     var identify = function(userId, name) {
-      mixpanel.identify(userId);
       mixpanel.people.set({
         $name: name,
         last_activity: new Date()
+      }, function() {
+        console.log('Finished people set');
+        console.log(arguments);
+      });
+      mixpanel.identify(userId, function() {
+        console.log('Finished identify');
+        console.log(arguments);
       });
     };
 
@@ -26,7 +32,10 @@
      * @param  {Object}         [options]       Additional options to store against the specified event
      */
     var track = function(event, options) {
-      mixpanel.track(event, options);
+      mixpanel.track(event, options, function() {
+        console.log('Finished tracking event ' + event);
+        console.log(arguments);
+      });
     };
 
     /**
