@@ -24,7 +24,9 @@
     'datacultures.services',
     'ngRoute',
     'ngSanitize',
-    'templates'
+    'templates',
+    'angulartics',
+    'angulartics.mixpanel'
   ]);
 
   // Bind datacultures to the window object so it's globally accessible
