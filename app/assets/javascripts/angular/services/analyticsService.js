@@ -12,6 +12,11 @@
      * @param  {String}         name            The display name of the user being tracked
      */
     var identify = function(userId, name) {
+      console.log('----------');
+      console.log('Before set user properties');
+      console.log(userId);
+      console.log(name);
+      console.log('----------');
       $analytics.setUserProperties({
         $name: name,
         last_activity: new Date()
@@ -19,6 +24,10 @@
         console.log('Finished people set');
         console.log(arguments);
       });
+      console.log('----------');
+      console.log('Before set user name');
+      console.log(userId);
+      console.log('----------');
       $analytics.setUsername(userId, function() {
         console.log('Finished identify');
         console.log(arguments);
@@ -32,6 +41,11 @@
      * @param  {Object}         [options]       Additional options to store against the specified event
      */
     var track = function(event, options) {
+      console.log('----------');
+      console.log('Before track event');
+      console.log(event);
+      console.log(options);
+      console.log('----------');
       $analytics.eventTrack(event, options, function() {
         console.log('Finished tracking event ' + event);
         console.log(arguments);
